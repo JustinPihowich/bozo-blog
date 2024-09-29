@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactMarkdown from 'react-markdown'
+
+const markdownContent = `
 placeholder for image
 placeholder for image
 placeholder for image
@@ -17,5 +21,17 @@ Score
 
 Comments:
 Carla - I like the show/hide button up above. That works well for guessing. 😀
-Carla - Whoa. I prefer the standard slicing vs the squares too and when the cheese doesn’t slide off. Pizza Lola was superior! But wait until you try Dave’s. 😊
+Carla - Whoa. I prefer the standard slicing vs the squares too and when the cheese doesn't slide off. Pizza Lola was superior! But wait until you try Dave's. 😊
 Anonymous - Yikes. The pizza looked delicious. I agree with the comments on the cut. You would never see a pizza cut like that in Italy or New York. I am taking notes and hopefully I will be ready for the Bozoblog challenge this summer.
+`;
+
+export default function PizzeriaLolaPage() {
+    return (
+        <>
+            <ReactMarkdown>
+                {markdownContent}
+            </ReactMarkdown>
+        </>
+    )
+}
+

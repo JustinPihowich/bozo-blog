@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactMarkdown from 'react-markdown'
+
+const markdownContent = `
 **This is the first pizza review on the blog and the format is likely to change in the future**
 
 placeholder for image
@@ -21,3 +25,15 @@ I was very surprised how much I liked this pizza. When I first saw it, I was exp
 Score
 8.4
 ■
+`;
+
+export default function PizzeriaLolaPage() {
+    return (
+        <>
+            <ReactMarkdown>
+                {markdownContent}
+            </ReactMarkdown>
+        </>
+    )
+}
+

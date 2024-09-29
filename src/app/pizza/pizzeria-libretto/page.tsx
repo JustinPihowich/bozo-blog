@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactMarkdown from 'react-markdown'
+
+const markdownContent = `
 placeholder for image
 placeholder for image
 placeholder for image
@@ -17,4 +21,17 @@ Score
 Comments:
 
 Anonymous - 8.9 is a strong rating. I have lots of work to do.
-Anonymous - Whoa. 8.9. That’s better than Dave’s, but not as good as Dave’s after he perfects his.
+Anonymous - Whoa. 8.9. That's better than Dave's, but not as good as Dave's after he perfects his.
+`;
+
+export default function PizzeriaLibrettoPage() {
+    return (
+        <>
+            <ReactMarkdown>
+                {markdownContent}
+            </ReactMarkdown>
+        </>
+    )
+}
+
+

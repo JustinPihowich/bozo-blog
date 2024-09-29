@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactMarkdown from 'react-markdown'
+
+const markdownContent = `
 placeholder for image
 
 Important Preface
@@ -13,8 +17,23 @@ Sauce
 Now we're talking. This sauce was exceptional. The flavor was so great with a classic tomato taste with no over the top seasoning or spice. Exactly the type of sauce I expect when I order a margherita. Usually if the pizza is labeled as a cheese pizza, I can excuse the sauce not being as tomatoey, but when a place serves me a margherita with over seasoned tomato sauce, it immediately brings the pizza down. This, however, did not have that. The flavoring was sweet and rich without being too chunky. The distribution of it on the pizza was solid as it didn't have too much in the center or around the crust. It is the shining ingredient in this pizza for sure.
 Cheese
 With the cheese, my thoughts are similar to those regarding the crust. It tasted fine and had good texture and moisture. Very solid and I don't have very much to critique about it. It didn't really wow me, but didn't detract either. The only complaint I would have is that I would like a bit more of an even distribution as some slices had very little of it (see the middle right slice for example).
+
 Final Thoughts
+
 I really enjoyed this pizza and the restaurant itself. The sauce was the standout ingredient by far and really elevated the pizza. The only note I would add is that it does has that oily feel to it so I ended up having to wipe my hands and face quite a lot, but that is not really a bad thing. They did have some interesting variations on their menu that might or might not work, but as usual, I only care about three ingredients.
+
 Score
 9.0
 ■
+`;
+
+export default function PizzeriaLolaPage() {
+    return (
+        <>
+            <ReactMarkdown>
+                {markdownContent}
+            </ReactMarkdown>
+        </>
+    )
+}
+
