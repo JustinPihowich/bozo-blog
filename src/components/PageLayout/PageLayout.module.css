@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: var(--color-background);
+  width: 15vw;
+}
+
+.main-content {
+  background-color: var(--color-secondary);
+  flex: 1;
+  border-right: 0.3rem solid var(--color-highlight);
+  border-left: 0.3rem solid var(--color-highlight);
+  padding: 2rem;
+}
