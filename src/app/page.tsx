@@ -11,6 +11,7 @@ export default function Home() {
   // const latestPost = posts[0];
 
   const markdownContent = `
+  # Luigi's Pizza
 Luigi's is a small, cozy pizza place that offers delivery, to-go, and dining in. It is a fairly family friendly, 'quick lunch' type of place. They focus primarily on thin crust pizzas and offer gluten free along with vegetarian options.
 
 :::info
@@ -50,7 +51,11 @@ Score
           <h2>Latest Post:</h2>
           {/* <a href='/posts/pizza/luigis-pizza'>Luigi&apos;s Pizza</a> */}
           <div className={styles['post-content']}>
-            <ReactMarkdown>{markdownContent}</ReactMarkdown>
+            <ReactMarkdown
+              components={{
+                h1: ({ children }) => <h1 style={{ textAlign: 'center' }}>{children}</h1>,
+              }}
+            >{markdownContent}</ReactMarkdown>
           </div>
         </>
       }
