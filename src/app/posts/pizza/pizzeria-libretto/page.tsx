@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown';
 
 const markdownContent = `
 placeholder for image
@@ -25,13 +25,9 @@ Anonymous - Whoa. 8.9. That's better than Dave's, but not as good as Dave's afte
 `;
 
 export default function PizzeriaLibrettoPage() {
-    return (
-        <>
-            <ReactMarkdown>
-                {markdownContent}
-            </ReactMarkdown>
-        </>
-    )
+  return (
+    <>
+      <ReactMarkdown>{markdownContent}</ReactMarkdown>
+    </>
+  );
 }
-
-

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown';
 
 const markdownContent = `
 placeholder for image
@@ -28,12 +28,9 @@ Score
 `;
 
 export default function PizzeriaLolaPage() {
-    return (
-        <>
-            <ReactMarkdown>
-                {markdownContent}
-            </ReactMarkdown>
-        </>
-    )
+  return (
+    <>
+      <ReactMarkdown>{markdownContent}</ReactMarkdown>
+    </>
+  );
 }
-
