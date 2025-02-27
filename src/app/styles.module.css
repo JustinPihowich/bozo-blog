@@ -19,11 +19,11 @@
 }
 
 .post-content {
-  background-color: #fff6c9; /* A warm cream tone for the card background */
-  border: 0.15rem solid var(--color-accent); /* Bold accent border for definition */
+  background-color: #fff6c9;
+  border: 0.15rem solid var(--color-accent);
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  border-radius: 0.5rem; /* Optional: adds some rounding for a softer look */
+  border-radius: 0.5rem;
 }

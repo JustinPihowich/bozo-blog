@@ -1,4 +1,5 @@
 import styles from './styles.module.css';
+import rehypeRaw from 'rehype-raw';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import PageLayout from '../components/PageLayout/PageLayout';
@@ -11,12 +12,11 @@ export default function Home() {
   // const latestPost = posts[0];
 
   const markdownContent = `
-  # Luigi's Pizza
+<div style="text-align: center; font-size: 2rem; font-weight: bold">Luigi's Pizza</div>
+
 Luigi's is a small, cozy pizza place that offers delivery, to-go, and dining in. It is a fairly family friendly, 'quick lunch' type of place. They focus primarily on thin crust pizzas and offer gluten free along with vegetarian options.
 
-:::info
-Note: The pizza is in a box. I got it to-go and just ate it in my car. It's still representative of what you would get eating in.
-:::
+<div style="font-style: italic">Note: The pizza is in a box. I got it to-go and just ate it in my car. It's still representative of what you would get eating in.</div>
 
 ## Crust
 
@@ -52,9 +52,10 @@ Score
           {/* <a href='/posts/pizza/luigis-pizza'>Luigi&apos;s Pizza</a> */}
           <div className={styles['post-content']}>
             <ReactMarkdown
-              components={{
-                h1: ({ children }) => <h1 style={{ textAlign: 'center' }}>{children}</h1>,
-              }}
+              // components={{
+              //   h1: ({ children }) => <h1 style={{ textAlign: 'center' }}>{children}</h1>,
+              // }}
+              rehypePlugins={[rehypeRaw]}
             >{markdownContent}</ReactMarkdown>
           </div>
         </>
