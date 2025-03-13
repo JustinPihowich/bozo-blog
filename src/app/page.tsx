@@ -56,7 +56,9 @@ Score
               //   h1: ({ children }) => <h1 style={{ textAlign: 'center' }}>{children}</h1>,
               // }}
               rehypePlugins={[rehypeRaw]}
-            >{markdownContent}</ReactMarkdown>
+            >
+              {markdownContent}
+            </ReactMarkdown>
           </div>
         </>
       }
