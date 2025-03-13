@@ -1,29 +1,35 @@
 import fs from 'fs';
 import path from 'path';
+import PageLayout from '../../../components/PageLayout/PageLayout';
+import styles from './pizza-styles.module.css';
+import PostLinkCard from '../../../components/PostLinkCard/PostLinkCard';
 
 function getPizzaPosts() {
   const postsDirectory = path.join(
     process.cwd(),
-    'src/app/posts/pizza/luigis-pizza'
+    'src/app/posts/pizza'
   );
-  const files = fs.readdirSync(postsDirectory);
-  const posts = files.map((file) => {
+  const filesDirectories = fs.readdirSync(postsDirectory);
+  const pizzaPosts = filesDirectories.map((fileDir) => {
     return {
-      slug: file.replace('.mdx', ''),
+      slug: fileDir,
       category: 'pizza',
-    };
-  });
-  return posts;
+    }
+  })
+  console.log(pizzaPosts);
+  return pizzaPosts;
 }
 
 export default function PizzaPage() {
   return (
-    <div>
-      {getPizzaPosts().map((post) => (
-        <div key={post.slug}>
-          <a href={`/posts/pizza/${post.slug}`}>Luigis Pizza</a>
-        </div>
-      ))}
-    </div>
+    <PageLayout>
+      <h1>Pizza Posts</h1>
+      <div className={styles['pizza-posts-list']}>
+        {getPizzaPosts().map((post) => (
+          <PostLinkCard key={post.slug} post={post} />
+        ))}
+      </div>
+    </PageLayout>
+    
   );
 }

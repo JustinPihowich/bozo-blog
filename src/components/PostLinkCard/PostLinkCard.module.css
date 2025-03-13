@@ -1,0 +1,12 @@
+.card {
+  background-color: #fff9f2;  /* Warm cream white that complements your palette */
+  border: 2px solid #e6b17a;  /* Darker warm tone that complements --color-highlight */
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 127, 41, 0.15);  /* Shadow using your accent color */
+}
