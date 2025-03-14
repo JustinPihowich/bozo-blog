@@ -10,9 +10,7 @@ interface PostLinkCardProps {
 export default function PostLinkCard({ post }: PostLinkCardProps) {
   return (
     <div className={style.card}>
-      <a href={`/posts/${post.category}/${post.slug}`}>
-        {post.slug}
-      </a>
+      <a href={`/posts/${post.category}/${post.slug}`}>{post.slug}</a>
     </div>
   );
 }

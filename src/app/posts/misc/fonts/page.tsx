@@ -1,5 +1,5 @@
 import Fonts from '../../../../markdown/misc/fonts.mdx';
-import PageLayout from '../../../../components/PageLayout/PageLayout'
+import PageLayout from '../../../../components/PageLayout/PageLayout';
 
 export default function Page() {
   return (

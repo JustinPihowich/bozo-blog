@@ -5,17 +5,14 @@ import styles from './pizza-styles.module.css';
 import PostLinkCard from '../../../components/PostLinkCard/PostLinkCard';
 
 function getPizzaPosts() {
-  const postsDirectory = path.join(
-    process.cwd(),
-    'src/app/posts/pizza'
-  );
+  const postsDirectory = path.join(process.cwd(), 'src/app/posts/pizza');
   const filesDirectories = fs.readdirSync(postsDirectory);
   const pizzaPosts = filesDirectories.map((fileDir) => {
     return {
       slug: fileDir,
       category: 'pizza',
-    }
-  })
+    };
+  });
   console.log(pizzaPosts);
   return pizzaPosts;
 }
@@ -30,6 +27,5 @@ export default function PizzaPage() {
         ))}
       </div>
     </PageLayout>
-    
   );
 }

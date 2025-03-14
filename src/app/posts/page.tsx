@@ -5,22 +5,19 @@ import styles from './posts-styles.module.css';
 import PostLinkCard from '../../components/PostLinkCard/PostLinkCard';
 
 function getPizzaPosts() {
-  const postsDirectory = path.join(
-    process.cwd(),
-    'src/app/posts/pizza'
-  );
+  const postsDirectory = path.join(process.cwd(), 'src/app/posts/pizza');
   const allItems = fs.readdirSync(postsDirectory);
-  const filesDirectories = allItems.filter(item => {
+  const filesDirectories = allItems.filter((item) => {
     const itemPath = path.join(postsDirectory, item);
     return fs.statSync(itemPath).isDirectory();
   });
-  
+
   const pizzaPosts = filesDirectories.map((fileDir) => {
     return {
       slug: fileDir,
       category: 'pizza',
-    }
-  })
+    };
+  });
   console.log(pizzaPosts);
   return pizzaPosts;
 }
@@ -31,7 +28,7 @@ function getEntertainmentPosts() {
     'src/app/posts/entertainment'
   );
   const allItems = fs.readdirSync(postsDirectory);
-  const filesDirectories = allItems.filter(item => {
+  const filesDirectories = allItems.filter((item) => {
     const itemPath = path.join(postsDirectory, item);
     return fs.statSync(itemPath).isDirectory();
   });
@@ -40,19 +37,16 @@ function getEntertainmentPosts() {
     return {
       slug: fileDir,
       category: 'entertainment',
-    }
-  })
+    };
+  });
   console.log(entertainmentPosts);
   return entertainmentPosts;
 }
 
 function getMiscPosts() {
-  const postsDirectory = path.join(
-    process.cwd(),
-    'src/app/posts/misc'
-  );
+  const postsDirectory = path.join(process.cwd(), 'src/app/posts/misc');
   const allItems = fs.readdirSync(postsDirectory);
-  const filesDirectories = allItems.filter(item => {
+  const filesDirectories = allItems.filter((item) => {
     const itemPath = path.join(postsDirectory, item);
     return fs.statSync(itemPath).isDirectory();
   });
@@ -61,8 +55,8 @@ function getMiscPosts() {
     return {
       slug: fileDir,
       category: 'misc',
-    }
-  })
+    };
+  });
   console.log(miscPosts);
   return miscPosts;
 }
@@ -89,6 +83,5 @@ export default function PizzaPage() {
         ))}
       </div>
     </PageLayout>
-    
   );
 }
