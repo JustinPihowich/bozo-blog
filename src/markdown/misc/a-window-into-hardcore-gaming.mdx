@@ -1,0 +1,65 @@
+import Image from 'next/image';
+
+There is an interesting discussion to be had nowadays as videogames and the hobby of gaming has become much more mainstream. The discussion is surrounding what type of gamer someone is. When talking about these things, it's very easy to start gatekeeping and restricting what people can enjoy based off of how many hours they have spent or something like that. You could spend hours quizzing someone about what retro games they know, how many achievements they have in a game, how big their game library is, what platform they play on, etc. and get nothing of value. However, there are definitely distinctions in the types of gamers out there and the things that they enjoy spending their time doing in games.
+
+The focus of this post will be on a multiplayer first-person shooter (FPS) called Overwatch. What I want to bring focus to is the hardcore gamer. Someone who is highly dedicated in a game and typically plays the ranked game modes. They typically try to improve their performance consistently as they enjoy the competitive nature of games. In multiplayer games, this usually results in what players call a meta. Something that is considered the most optimal or best way to play. As an example outside of gaming, the meta play in football is to punt on fourth down. In competitive multiplayer games like Overwatch, the meta is always evolving as players find new methodologies and strategies along with developers continually changing the game. All of this results in various discussions in the community and typically heated debates about what is meta and what is not.
+
+This leads me to what I wanted to show here and that is some gameplay from a character called Reaper in Overwatch. He carries two shotguns and reloads by throwing them on the ground and taking new ones out of his belt (welcome to gaming). The discussion centers on whether it is faster to do the normal reload animation without any other input or cancel some of the reload animation with a melee attack. An animation is just an action that a character does like if you picked up a ball off the ground, in a game that would likely be called your pick up animation. There are players on both sides, saying you should always melee when reloading and others that say you should not melee when reloading. But first, we need to step back and determine if it really is true that Reaper's melee makes the reload animation shorter. If this was the case, you could reload faster and thus get more shots off sooner.
+
+To analyze this, we can look at the game's frame data. Video games and any sort of video at all are comprised of frames, essentially just images, strung together in a sequence in a really quick timeframe. The target framerate for most games is around 60 frames per second for context. Now, the framerate is actually client based meaning that it differs from computer to computer and some players might get 80 FPS (yeah sorry that first-person shooter and frames per second have the same acronym) and others might get 120. However, this does not change the time that it takes for something to happen in the game. To understand this would take a lot more explanation and a dive into modern computing so we will just take this for granted. Now that we know we can look at the frames that something takes to see exactly how long it is, we can do a side-by-side comparison of both scenarios. First, I will show both clips as they are normally in game.
+
+Reload animation with no melee attack
+Note: videos not saved during migration
+
+Reload animation wiht a melee attack
+Note: videos not saved during migration
+
+Did you notice how the animation of Reaper pulling out his guns is cancelled in the second video? This is something known as animation cancelling in video games, where you override an existing animation by doing another one. This behaves very differently from game to game and no concrete conclusion can be drawn from this. And thus, we are at the finale. Here is the frame data for both scenarios
+
+Reload animation with no melee attack
+
+<Image
+  src="/misc/a-window-into-hardcore-gaming/reload-no-melee.jpg"
+  alt="Reload animation with no melee attack"
+  width={0}
+  height={0}
+  sizes="100vw"
+  style={{ width: 'auto', height: 'auto' }}
+/>
+
+Reload animation with a melee attack
+
+<Image
+  src="/misc/a-window-into-hardcore-gaming/reload-melee.jpg"
+  alt="Reload animation with a melee attack"
+  width={0}
+  height={0}
+  sizes="100vw"
+  style={{ width: 'auto', height: 'auto' }}
+/>
+
+Now I won't make you count those frames up, but the result is that with no melee attack, the animation takes 56 frames and with a melee attack, it takes 55 frames. This 1 frame difference is likely to to recording and user input error. This shows that both methods actually take the same amount of frames and therefore you do not save any time by animation cancelling Reaper's reload animation in Overwatch. Now even if there was a 1 frame difference, 1 frame is a negligible difference and not even the most meta following players would focus on that. However, due to the fact that the developers coding the game created these animations, it is far more likely that there is small user error here and the developers made these the same length.
+
+There is still one more detail that I haven't covered in this ongoing discussion/debate about Reaper's reload animation. That detail is that the melee attack will still do damage as a normal melee attack. This means that you might want to still do the melee attack cancel if an enemy is very low in front of you as you run out of ammo. This goes more into dynamic gameplay details and situations which is not really the focus of this, though.
+
+What does this all mean you ask? Why does this matter? Well that brings us back to the initial discussion of hardcore gamers. Thinking about this and having a discussion about it is something that usually only a hardcore gamer would do. If someone says that they are more of a hardcore gamer rather than a casual gamer, this may provide some insight into what they mean. It's also an interesting discussion because it actually has a quantitative, concrete answer compared to the vast majority of subjective opinions on meta. A small disclaimer, however, is that not every hardcore gamer thinks like this and these labels we put on the hobby are really only a fun way to distinguish our specific interests.
+
+:::green info
+This is the small Python script that stripped the video into individual frames as well. Ideally, I would have a different party use my methodology and confirm my results to follow the scientific method of discovery.
+:::
+
+```python
+import cv2
+vidcap = cv2.VideoCapture('no_melee.mp4')
+success,image = vidcap.read()
+count = 0
+while success:
+  cv2.imwrite("frame%d.jpg" % count, image)     # save frame as JPEG file      
+  success,image = vidcap.read()
+  print('Read a new frame: ', success)
+  count += 1
+```
+
+{/* Comments:
+Matt, Dave, Carla - Hey, when’s the next post bub?
+Anonymous - Great post by a hardcore gamer! Now I also know what FPS, and that it has 2 different meanings. Also, I know more about your gaming interests and the behinds the scenes of game making. Thanks for sharing! */}
