@@ -42,6 +42,9 @@ Score
           <p style={{ textAlign: 'center' }}>
             Welcome to the blog. Drip in, the water&apos;s warm
           </p>
+          <h2 style={{ textAlign: 'center' }}>
+            <a href='/posts'>All Posts</a>
+          </h2>
           <h2 style={{ textAlign: 'center' }}>Categories</h2>
           <div className={styles.categories}>
             {categories.map((category) => (
